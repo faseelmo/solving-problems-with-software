@@ -91,14 +91,14 @@ public class Part1 {
         String filename = fileWithColdestTemperature();
         System.out.println("Coldest day was in file " + filename);
         
-        String filesource = "D:/Desktop/github clones/infinite/solving-problems-with-software/weather/data/nc_weather/2014/" + filename;  
+        String filesource = "D:/Desktop/github clones/infinite/solving-problems-with-software/weather/data/nc_weather/2013/" + filename;  
         FileResource fr = new FileResource(filesource);
         CSVRecord smallest = coldestHourFile(fr.getCSVParser(), "TemperatureF");
         System.out.println("Smallest temp is " + smallest.get("TemperatureF"));
         
         System.out.println("All the temperature in this file are");
         for (CSVRecord currentRow : fr.getCSVParser()) {
-           System.out.println(currentRow.get("DateUT    C") + "  " +currentRow.get("TemperatureF"));
+           System.out.println(currentRow.get("DateUTC") + "  " +currentRow.get("TemperatureF"));
         }
     }
     
@@ -188,7 +188,7 @@ public class Part1 {
                     if (currentTempString.equals("-9999")) {
             
                     } else {
-                        sum = sum + Double.parseDouble(currentString);
+                        sum = sum + Double.parseDouble(currentTempString);
                         count = count + 1;                       
                
                     }
